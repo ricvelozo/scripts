@@ -8,6 +8,6 @@ Lincensing
 ----------
 
 Except where otherwise noted, content on this repository is licensed under the
-MIT license.
+MIT License.
 
 Please see the file `LICENSE`.

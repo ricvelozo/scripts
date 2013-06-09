@@ -9,6 +9,6 @@ Linceciamento
 -------------
 
 Exceto quando indicado, o conteúdo deste repositório está licenciado sob a
-licença MIT.
+MIT License.
 
 Por favor, veja o arquivo `LICENSE`.
