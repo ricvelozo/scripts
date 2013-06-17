@@ -37,8 +37,8 @@ Estrutura do diretório
 
 * `bin/` - binários e ferramentas
 * `doc/` - documentação
+* `share/` - arquivos anexos
 * `src/` - código fonte
-    * `lib/` - bibliotecas de terceiros
 
 
 Linceciamento

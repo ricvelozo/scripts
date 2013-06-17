@@ -37,8 +37,8 @@ Directory structure
 
 * `bin/` - binaries and tools
 * `doc/` - documentation
+* `share/` - accompanying files
 * `src/` - source code
-    * `lib/` - third-party libraries
 
 
 Lincensing
