@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Make the basic directory structure
-mkdir -p bin doc src src/lib
+mkdir -p bin doc share src
 
 # Get the user directories
 cat ~/.config/user-dirs.dirs | while read line; do
