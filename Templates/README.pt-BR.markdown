@@ -36,8 +36,8 @@ Estrutura do diretório
 ----------------------
 
 * `bin/` - binários e ferramentas
-* `doc/` - documentação
 * `share/` - arquivos anexos
+    * `doc/` - documentação
 * `src/` - código fonte
 
 

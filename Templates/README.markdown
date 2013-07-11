@@ -36,8 +36,8 @@ Directory structure
 -------------------
 
 * `bin/` - binaries and tools
-* `doc/` - documentation
 * `share/` - accompanying files
+    * `doc/` - documentation
 * `src/` - source code
 
 
