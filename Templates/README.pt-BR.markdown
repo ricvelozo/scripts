@@ -29,7 +29,7 @@ Veja o arquivo `INSTALL` para mais detalhes.
 Documentação
 ------------
 
-O diretório `doc` contém vários materiais para consulta.
+O diretório `share/doc/` contém vários materiais para consulta.
 
 
 Estrutura do diretório

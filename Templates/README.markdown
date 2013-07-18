@@ -29,7 +29,7 @@ See the file `INSTALL` for more details.
 Documentation
 -------------
 
-The directory `doc` contains various materials for consultation.
+The directory `share/doc/` contains various materials for consultation.
 
 
 Directory structure
