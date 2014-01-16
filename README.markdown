@@ -4,8 +4,8 @@ What is it?
 Some useful scripts I wrote ​​or found somewhere in web (authors attributed).
 
 
-Lincensing
-----------
+Licensing
+---------
 
 Except where otherwise noted, content on this repository is licensed under the
 MIT License.
