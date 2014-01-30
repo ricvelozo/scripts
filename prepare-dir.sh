@@ -11,7 +11,7 @@ cat ~/.config/user-dirs.dirs | while read line; do
 
         # Copy README* template(s), if any
         if [ $(ls "$templates_dir/README"* 2> /dev/null | wc -l) != "0" ]
-            then cp -n "$templates_dir/README"* ./
+            then cp -n -r -T "$templates_dir/README"* ./
         fi
     fi
 done
