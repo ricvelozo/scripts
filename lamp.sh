@@ -13,7 +13,10 @@ then
 
     # Create a symbolic link to configuration of phpMyAdmin
     sudo ln -s /etc/phpmyadmin/apache.conf /etc/apache2/conf.d/phpmyadmin.conf
-
-    # Restart the Apache
-    sudo service apache2 restart
 fi
+
+# Enable mod_rewrite
+sudo a2enmod rewrite
+
+# Restart the Apache
+sudo service apache2 restart
