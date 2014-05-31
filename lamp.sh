@@ -1,5 +1,6 @@
 #!/bin/bash
-sudo apt-get install mysql-server apache2 libapache2-mod-php5 php5 php5-mysql phpmyadmin
+sudo apt-get install apache2 libapache2-mod-php5 mysql-server php5 php5-mysql \
+php5-mcrypt php5-gd php5-curl phpmyadmin
 
 if [ $(grep --count "/etc/phpmyadmin/apache.conf" \
      "/etc/apache2/apache2.conf") = "0" ]
@@ -17,6 +18,9 @@ fi
 
 # Enable mod_rewrite
 sudo a2enmod rewrite
+
+# Enable mysql, mcrypt, gd, and curl
+sudo php5enmod mysql mcrypt gd curl
 
 # Restart the Apache
 sudo service apache2 restart
