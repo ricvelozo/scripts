@@ -14,4 +14,5 @@ cat ~/.config/user-dirs.dirs | while read line; do
 done
 
 # Make the basic directory structure
-mkdir -p assets content && cd assets && mkdir -p css fonts images js scss
+mkdir -p assets content && cd assets &&
+mkdir -p css fonts images js scss vendor
