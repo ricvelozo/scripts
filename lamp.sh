@@ -1,19 +1,17 @@
 #!/bin/bash
-sudo apt-get install apache2 libapache2-mod-php5 mysql-server php5 php5-mysql \
-php5-mcrypt php5-gd php5-imagick php5-curl phpmyadmin
 
-# Create a symbolic link to configuration of phpMyAdmin
+# Tested on Ubuntu 16.04 LTS “Xenial Xerus”
+
+sudo apt-get install apache2 libapache2-mod-php mysql-server php php-curl \
+php-imagick php-gd php-gettext php-mbstring php-mcrypt php-mysql php-zip \
+phpmyadmin
+
+# Create a symbolic link to configuration of phpMyAdmin and enable it
 sudo ln -s /etc/phpmyadmin/apache.conf \
-/etc/apache2/conf-available/phpmyadmin.conf
-
-# Enable phpMyAdmin
-sudo a2enconf phpmyadmin
+/etc/apache2/conf-available/phpmyadmin.conf && a2enconf phpmyadmin
 
 # Enable mod_rewrite
 sudo a2enmod rewrite
 
-# Enable mysql, mcrypt, gd, imagick, and curl
-sudo php5enmod mysql mcrypt gd imagick curl
-
-# Restart the Apache
-sudo service apache2 restart
+# Restart the Apache service
+sudo systemctl restart apache2.service
