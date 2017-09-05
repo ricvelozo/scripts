@@ -52,7 +52,7 @@ def extract_blend(executable_url):
                           "'")
 
                 break
-            
+
             line = line_temp[-32:len(line_temp)]
 
     except IOError:
