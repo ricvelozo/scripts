@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Set permissions 755 for directories, and 664 for files, recursively
 # Source: http://superuser.com/a/51873

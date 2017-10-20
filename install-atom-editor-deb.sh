@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # Installs or updates the Atom Editor (.deb) with favorite packages
 cd /tmp && wget https://atom.io/download/deb -O atom-editor.deb &&
 sudo dpkg -i ./atom-editor.deb && apm install sublime-style-column-selection \

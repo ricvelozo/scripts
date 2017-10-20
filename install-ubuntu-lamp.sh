@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Tested on Ubuntu 16.04 LTS “Xenial Xerus”
 

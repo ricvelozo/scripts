@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Add an empty .gitignore file in that directory there are no files
 # Source: http://stackoverflow.com/a/5871742

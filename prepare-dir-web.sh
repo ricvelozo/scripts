@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Get the current Templates directory
 templates_dir="$(xdg-user-dir TEMPLATES)"
