@@ -1,5 +1,4 @@
-#!/usr/bin/python3
-# -*- coding: UTF-8 -*-
+#!/usr/bin/env python3
 
 """Extract a .blend file of a Windows executable (.exe)
 Author:  Ricardo Silva Veloso (Ricvelozo)
