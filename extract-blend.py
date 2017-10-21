@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 """Extract a .blend file of a Windows executable (.exe)
-Author:  Ricardo Silva Veloso (Ricvelozo)
-Website: http://ricvelozo.blogspot.com/
+Author:  Ricardo Silva Veloso (ricvelozo)
+Website: https://github.com/ricvelozo/scripts
 """
 
 import os
