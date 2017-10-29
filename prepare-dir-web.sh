@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Get the current Templates directory
 templates_dir="$(xdg-user-dir TEMPLATES)"
@@ -9,5 +9,4 @@ if [ $(ls "$templates_dir/README"* 2> /dev/null | wc -l) != "0" ]
 fi
 
 # Make the basic directory structure
-mkdir -p public/content resources/assets && cd resources/assets &&
-mkdir -p fonts images js sass
+mkdir -p public resources/assets/{fonts,images,js,sass}
