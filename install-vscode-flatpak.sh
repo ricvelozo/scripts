@@ -13,6 +13,7 @@ flatpak run com.visualstudio.code.oss \
 --install-extension formulahendry.auto-rename-tag \
 --install-extension dbaeumer.vscode-eslint \
 --install-extension octref.vetur \
+--install-extension bmewburn.vscode-intelephense-client \
 --install-extension ms-python.python \
 --install-extension rust-lang.rust \
 --install-extension bungcip.better-toml
