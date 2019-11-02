@@ -1,7 +1,7 @@
 #!/bin/sh
 # Installs the Visual Studio Code (Flatpak) with favorite packages
 flatpak remote-add --if-not-exists flathub \
-https://dl.flathub.org/repo/flathub.flatpakrepo && \
+https://flathub.org/repo/flathub.flatpakrepo && \
 flatpak install --system flathub com.visualstudio.code && \
 flatpak run com.visualstudio.code \
 --install-extension zhuangtongfa.material-theme \
