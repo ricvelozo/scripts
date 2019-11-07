@@ -17,3 +17,24 @@ flatpak run com.visualstudio.code \
 --install-extension ms-python.python \
 --install-extension rust-lang.rust \
 --install-extension bungcip.better-toml
+
+# settings.json:
+# {
+#    "window.menuBarVisibility": "toggle",
+#    "workbench.colorTheme": "One Dark Pro",
+#    "workbench.iconTheme": "material-icon-theme",
+#    "editor.rulers": [
+#        80,
+#        100
+#    ],
+#    "files.insertFinalNewline": true,
+#    "files.watcherExclude": {
+#        "**/target/**": true
+#    },
+#    "terminal.integrated.shell.linux": "flatpak-spawn",
+#    "terminal.integrated.shellArgs.linux": ["--host", "bash"],
+#    "eslint.nodePath": "/home/ricardo/flatpak-nodejs",
+#    "php.validate.executablePath": "/home/ricardo/flatpak-php",
+#    "rust-client.rlsPath": "/home/ricardo/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/bin/rls",
+#    "telemetry.enableTelemetry": false
+# }
