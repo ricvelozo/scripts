@@ -11,6 +11,8 @@ flatpak run com.visualstudio.code \
 --install-extension dotjoshjohnson.xml \
 --install-extension formulahendry.auto-close-tag \
 --install-extension formulahendry.auto-rename-tag \
+--install-extension pucelle.vscode-css-navigation \
+--install-extension mrmlnc.vscode-scss \
 --install-extension dbaeumer.vscode-eslint \
 --install-extension octref.vetur \
 --install-extension bmewburn.vscode-intelephense-client \
