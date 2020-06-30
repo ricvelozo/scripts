@@ -24,6 +24,7 @@ flatpak run com.visualstudio.code \
 # settings.json:
 # {
 #     "window.menuBarVisibility": "toggle",
+#     "window.restoreWindows": "none",
 #     "workbench.colorTheme": "One Dark Pro",
 #     "workbench.iconTheme": "material-icon-theme",
 #     "editor.rulers": [
@@ -34,8 +35,5 @@ flatpak run com.visualstudio.code \
 #     "files.watcherExclude": {
 #         "**/target/**": true
 #     },
-#     "eslint.nodePath": "/home/ricardo/flatpak-nodejs",
-#     "php.validate.executablePath": "/home/ricardo/flatpak-php",
-#     "rust-client.rustupPath": "/home/ricardo/.cargo/bin/rustup",
 #     "telemetry.enableTelemetry": false
 # }
