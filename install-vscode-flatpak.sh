@@ -20,6 +20,7 @@ flatpak run com.visualstudio.code \
 --install-extension ms-python.python \
 --install-extension ms-python.vscode-pylance \
 --install-extension samuelcolvin.jinjahtml \
+--install-extension sumneko.lua \
 --install-extension rust-lang.rust \
 --install-extension bungcip.better-toml \
 --install-extension Dart-Code.flutter \
