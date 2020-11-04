@@ -16,6 +16,7 @@ flatpak run com.visualstudio.code \
 --install-extension dbaeumer.vscode-eslint \
 --install-extension octref.vetur \
 --install-extension bmewburn.vscode-intelephense-client \
+--install-extension ms-vscode.cpptools \
 --install-extension ms-dotnettools.csharp \
 --install-extension ms-python.python \
 --install-extension ms-python.vscode-pylance \
