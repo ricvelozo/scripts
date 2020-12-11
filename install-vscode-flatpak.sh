@@ -16,14 +16,14 @@ flatpak run com.visualstudio.code \
 --install-extension dbaeumer.vscode-eslint \
 --install-extension octref.vetur \
 --install-extension bmewburn.vscode-intelephense-client \
+--install-extension matklad.rust-analyzer \
+--install-extension bungcip.better-toml \
 --install-extension ms-vscode.cpptools \
 --install-extension ms-dotnettools.csharp \
 --install-extension ms-python.python \
 --install-extension ms-python.vscode-pylance \
 --install-extension samuelcolvin.jinjahtml \
 --install-extension sumneko.lua \
---install-extension rust-lang.rust \
---install-extension bungcip.better-toml \
 --install-extension Dart-Code.flutter \
 --install-extension geequlim.godot-tools
 
