@@ -25,7 +25,8 @@ flatpak run com.visualstudio.code \
 --install-extension samuelcolvin.jinjahtml \
 --install-extension sumneko.lua \
 --install-extension Dart-Code.flutter \
---install-extension geequlim.godot-tools
+--install-extension geequlim.godot-tools \
+--install-extension bilelmoussaoui.flatpak-vscode
 
 # settings.json:
 # {
