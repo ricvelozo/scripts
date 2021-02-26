@@ -9,4 +9,4 @@ if [ $(ls "$templates_dir/README"* 2> /dev/null | wc -l) != "0" ]
 fi
 
 # Make the basic directory structure
-mkdir -p bin doc examples include lib src test
+mkdir -p build-aux data docs examples include po src tests
