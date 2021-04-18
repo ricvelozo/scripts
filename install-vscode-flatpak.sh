@@ -4,7 +4,7 @@ flatpak remote-add --if-not-exists flathub \
 https://flathub.org/repo/flathub.flatpakrepo && \
 flatpak install --system flathub com.visualstudio.code && \
 flatpak run com.visualstudio.code \
---install-extension zhuangtongfa.material-theme \
+--install-extension GitHub.github-vscode-theme \
 --install-extension pkief.material-icon-theme \
 --install-extension EditorConfig.EditorConfig \
 --install-extension yzhang.markdown-all-in-one \
@@ -32,7 +32,7 @@ flatpak run com.visualstudio.code \
 # {
 #     "window.menuBarVisibility": "toggle",
 #     "window.restoreWindows": "none",
-#     "workbench.colorTheme": "One Dark Pro",
+#     "workbench.colorTheme": "GitHub Dark Dimmed",
 #     "workbench.iconTheme": "material-icon-theme",
 #     "editor.rulers": [
 #         80,
