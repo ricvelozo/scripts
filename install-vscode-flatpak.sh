@@ -32,7 +32,7 @@ flatpak run com.visualstudio.code \
 # {
 #     "window.menuBarVisibility": "toggle",
 #     "window.restoreWindows": "none",
-#     "workbench.colorTheme": "GitHub Dark Dimmed",
+#     "workbench.colorTheme": "GitHub Dark",
 #     "workbench.iconTheme": "material-icon-theme",
 #     "editor.rulers": [
 #         80,
