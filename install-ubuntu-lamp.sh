@@ -2,9 +2,8 @@
 
 # Tested on Ubuntu 16.04 LTS “Xenial Xerus”
 
-sudo apt-get install apache2 libapache2-mod-php mysql-server php php-curl \
-php-imagick php-gd php-gettext php-mbstring php-mcrypt php-mysql php-zip \
-phpmyadmin
+sudo apt-get install apache2 mysql-server {,libapache2-mod-}php \
+php-{bcmath,curl,gd,gettext,imagick,mbstring,mcrypt,mysql,zip} phpmyadmin
 
 # Create a symbolic link to configuration of phpMyAdmin and enable it
 sudo ln -s /etc/phpmyadmin/apache.conf \
