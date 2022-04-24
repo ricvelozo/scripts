@@ -1,87 +1,63 @@
 #!/usr/bin/env python3
 
-"""Extract a .blend file of a Windows executable (.exe)
+"""Extract a .blend file from a Windows executable (.exe)
 Author:  Ricardo Silva Veloso (ricvelozo)
-Website: https://github.com/ricvelozo/scripts
+Website: https://gitlab.com/ricvelozo/scripts
 """
 
-import os
+__version__ = '2.0.0'
+
+import click
 import re
-import sys
+from os import path
 
-def extract_blend(executable_url):
-    blend_dir, exe_name = os.path.split(executable_url)
-    blend_name = exe_name[0:-3] + "blend"
+BUFSIZE = 4 * 1024 * 1024 # 4 MB
 
-    try:
-        executable_file = open(executable_url, "rb")
-        print("Processing '" + exe_name + "'...")
+@click.command(context_settings=dict(help_option_names=['-h', '--help']))
+@click.version_option(version=__version__, message='%(prog)s %(version)s')
+@click.argument('executables', metavar='INPUT', nargs=-1)
+def extract(executables: list[str]):
+    """Extract a .blend file from a Windows executable (.exe)"""
 
-        line = b""
-        while True:
-            line_temp = executable_file.read(1024)
-            if line_temp == b"":
-                print("The file '" + exe_name + "' does not have a .blend " \
-                      "file")
-                break
+    if not executables:
+        executable = input('Enter the URL of the executable file, ' \
+                           'or ENTER to exit:\n>>> ')
 
-            line = line + line_temp
-            pos = re.search(b"BLENDER_[v|V][0-9]{3}REND", line)
-            if not pos == None:
-                try:
-                    blend_file = open(os.path.join(blend_dir, blend_name),
-                                      "wb")
-                    pos = pos.start()
+        if executable.strip():
+            executables = [executable]
 
-                    print("Extracting '" + exe_name + "'...")
-                    blend_file.write(line[pos:len(line)])
+    for i, executable in enumerate(executables):
+        dir, filename = path.split(executable)
+        blend = filename[0:-4] if filename.endswith('.exe') else filename
+        blend += '.blend'
+        if i > 0:
+            print()
 
-                    while True:
-                        line_temp = executable_file.read(1024)
-                        if line_temp == b"":
-                            break
+        try:
+            with open(executable, 'rb') as exe:
+                print(f'{[i]} Processing `{filename}`...')
+                while (buf := exe.read(BUFSIZE)):
+                    magic_number = re.search(b'BLENDER_[v|V][0-9]{3}REND', buf)
+                    if magic_number is not None:
+                        print(f'{[i]} Extracting `{blend}`...')
+                        try:
+                            with open(path.join(dir, blend), 'wb') as output:
+                                start = magic_number.start()
+                                output.write(buf[start:])
+                                while (buf := exe.read(BUFSIZE)):
+                                    output.write(buf)
 
-                        blend_file.write(line_temp)
+                        except IOError:
+                            print(f'{[i]} Could not open the file `{blend}`.')
 
-                    blend_file.close()
-                    print(".blend file extracted: '" + blend_name + "'")
+                        break
 
-                except IOError:
-                    print("Could not create the .blend file '" + blend_name +
-                          "'")
+                if magic_number is None:
+                    print(f'{[i]} The file `{filename}` does not have a ' \
+                           '.blend file.')
 
-                break
+        except IOError:
+            print(f'{[i]} Could not open the file `{filename}`.')
 
-            line = line_temp[-32:len(line_temp)]
-
-    except IOError:
-        print("Could not open the file '" + exe_name + "'")
-        return False
-
-def main():
-    if len(sys.argv) > 1:
-        args = sys.argv[1:len(sys.argv)]
-
-        # Extract the .blend file(s)
-        for arg in args:
-            extract_blend(arg)
-
-    else:
-        while True:
-            executable_url = input("Enter the URL of the executable file, " \
-                                   "or ENTER to exit:\n>>> ")
-
-            # Empty line on Unix-like and Windows, respectively
-            if len(executable_url) == 0 or executable_url == '\r':
-                break
-
-            else:
-                # Remove the '\r' character on Windows
-                if executable_url[-1] == '\r':
-                    executable_url = executable_url[0:-1]
-
-                # Extract the .blend file
-                extract_blend(executable_url)
-
-if __name__ == "__main__":
-    main()
+if __name__ == '__main__':
+    extract()
