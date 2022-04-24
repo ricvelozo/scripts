@@ -36,16 +36,17 @@ def extract(executables: list[str]):
         try:
             with open(executable, 'rb') as exe:
                 print(f'{[i]} Processing `{filename}`...')
-                while (buf := exe.read(BUFSIZE)):
-                    magic_number = re.search(b'BLENDER_[v|V][0-9]{3}REND', buf)
+                while chunk := exe.read(BUFSIZE):
+                    magic_number = re.search(b'BLENDER[_|-][v|V][0-9]{3}',
+                                             chunk)
                     if magic_number is not None:
                         print(f'{[i]} Extracting `{blend}`...')
                         try:
                             with open(path.join(dir, blend), 'wb') as output:
                                 start = magic_number.start()
-                                output.write(buf[start:])
-                                while (buf := exe.read(BUFSIZE)):
-                                    output.write(buf)
+                                output.write(chunk[start:])
+                                while chunk := exe.read(BUFSIZE):
+                                    output.write(chunk)
 
                         except IOError:
                             print(f'{[i]} Could not open the file `{blend}`.')
