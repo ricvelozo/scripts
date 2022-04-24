@@ -30,7 +30,6 @@ def extract(executables: list[str]):
         blend += '.blend'
         if i > 0:
             print()
-
         try:
             with open(executable, 'rb') as exe:
                 print(f'{[i]} Processing `{filename}`...')
@@ -39,7 +38,10 @@ def extract(executables: list[str]):
                 while chunk := exe.read(DEFAULT_BUFFER_SIZE):
                     bigger_chunk += chunk
                     magic_number = prog.search(bigger_chunk)
-                    if magic_number is not None:
+                    if magic_number is None:
+                        # Include the last 12 bytes in the next search
+                        bigger_chunk = bigger_chunk[-12:]
+                    else:
                         print(f'{[i]} Extracting `{blend}`...')
                         try:
                             with open(path.join(dir, blend), 'wb') as output:
@@ -49,19 +51,12 @@ def extract(executables: list[str]):
 
                                 while chunk := exe.read(DEFAULT_BUFFER_SIZE):
                                     output.write(chunk)
-
                         except IOError:
                             print(f'{[i]} Could not open the file `{blend}`.')
-
                         break
-
-                    # Include the last 12 bytes in the next search
-                    bigger_chunk = bigger_chunk[-12:]
-
                 if magic_number is None:
                     print(f'{[i]} The file `{filename}` does not have a ' \
                            '.blend file.')
-
         except IOError:
             print(f'{[i]} Could not open the file `{filename}`.')
 
