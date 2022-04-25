@@ -4,7 +4,7 @@
 Website: https://gitlab.com/ricvelozo/scripts
 """
 
-__version__ = '2.1.0'
+__version__ = '2.2.0'
 __author__ = 'Ricardo Silva Veloso'
 
 import click
@@ -17,13 +17,12 @@ from os import path
 @click.argument('executables', metavar='INPUT', nargs=-1)
 def extract(executables: list[str]):
     """Extract a .blend file from a Windows executable (.exe)."""
-
+    prog = re.compile(b'BLENDER[_|-][v|V][0-9]{3}')
     if not executables:
         executable = input('Enter the URL of the executable file, ' \
                            'or ENTER to exit:\n>>> ').strip()
         if executable:
             executables = [executable]
-
     for i, executable in enumerate(executables):
         dir, filename = path.split(executable)
         blend = filename[:-4] if filename.endswith('.exe') else filename
@@ -33,7 +32,6 @@ def extract(executables: list[str]):
         try:
             with open(executable, 'rb') as exe:
                 print(f'{[i]} Processing `{filename}`...')
-                prog = re.compile(b'BLENDER[_|-][v|V][0-9]{3}')
                 bigger_chunk = b''
                 while chunk := exe.read(DEFAULT_BUFFER_SIZE):
                     bigger_chunk += chunk
@@ -52,8 +50,10 @@ def extract(executables: list[str]):
                                 while chunk := exe.read(DEFAULT_BUFFER_SIZE):
                                     output.write(chunk)
                         except IOError:
-                            print(f'{[i]} Could not open the file `{blend}`.')
+                            print(f'{[i]} Could not write to `{blend}`.')
                         break
+
+                # EOF
                 if magic_number is None:
                     print(f'{[i]} The file `{filename}` does not have a ' \
                            '.blend file.')
