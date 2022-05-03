@@ -4,7 +4,7 @@
 Website: https://gitlab.com/ricvelozo/scripts
 """
 
-__version__ = '2.2.0'
+__version__ = '2.2.1'
 __author__ = 'Ricardo Silva Veloso'
 
 import click
@@ -35,23 +35,23 @@ def extract(executables: list[str]):
                 bigger_chunk = b''
                 while chunk := exe.read(DEFAULT_BUFFER_SIZE):
                     bigger_chunk += chunk
-                    magic_number = prog.search(bigger_chunk)
-                    if magic_number is None:
-                        # Include the last 12 bytes in the next search
-                        bigger_chunk = bigger_chunk[-12:]
-                    else:
+                    if magic_number := prog.search(bigger_chunk):
                         print(f'{[i]} Extracting `{blend}`...')
                         try:
                             with open(path.join(dir, blend), 'wb') as output:
-                                # The .blend file's start
+                                # Copy the .blend file's start
                                 start = magic_number.start()
                                 output.write(bigger_chunk[start:])
 
+                                # Copy the rest of the .blend file
                                 while chunk := exe.read(DEFAULT_BUFFER_SIZE):
                                     output.write(chunk)
                         except IOError:
                             print(f'{[i]} Could not write to `{blend}`.')
                         break
+                    else:
+                        # Keep only the last 12 bytes for the next search
+                        bigger_chunk = bigger_chunk[-12:]
 
                 # EOF
                 if magic_number is None:
