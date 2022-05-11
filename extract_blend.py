@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
 
-"""Extract a .blend file from a Windows executable (.exe).
-Website: https://gitlab.com/ricvelozo/scripts
-"""
+# Website: https://gitlab.com/ricvelozo/scripts
 
-__version__ = '2.3.3'
+__version__ = '2.3.4'
 __author__ = 'Ricardo Silva Veloso'
 
 import re
 from pathlib import Path
 
 import click
+
 
 @click.command(context_settings=dict(help_option_names=['-h', '--help']))
 @click.version_option(version=__version__, message='%(prog)s %(version)s')
@@ -19,7 +18,7 @@ def extract(executables: list[str]):
     """Extract a .blend file from a Windows executable (.exe)."""
     magic_number_prog = re.compile(b'BLENDER[_|-][v|V][0-9]{3}')
     if not executables:
-        executables = [input('Enter the URL of the executable file, ' \
+        executables = [input('Enter the URL of the executable file, '
                              'or ENTER to exit:\n>>> ').strip()]
     executables = [Path(exe) for exe in executables if exe]
     for i, exe_path in enumerate(executables):
@@ -27,7 +26,7 @@ def extract(executables: list[str]):
         exe_name, blend_name = exe_path.name, blend_path.name
         try:
             if i > 0:
-                print() # Separate with blank lines
+                print()  # Separate with blank lines
             with exe_path.open('rb') as exe:
                 print(f'{[i]} Processing `{exe_name}`...')
                 bigger_chunk = bytes()
@@ -55,10 +54,11 @@ def extract(executables: list[str]):
 
                 # EOF
                 if magic_number is None:
-                    print(f'{[i]} The file `{exe_name}` does not have a ' \
-                           '.blend file.')
+                    print(f'{[i]} The file `{exe_name}` does not have a '
+                          '.blend file.')
         except IOError:
             print(f'{[i]} Could not open the file `{exe_name}`.')
+
 
 if __name__ == '__main__':
     extract()
