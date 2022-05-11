@@ -4,12 +4,13 @@
 Website: https://gitlab.com/ricvelozo/scripts
 """
 
-__version__ = '2.3.2'
+__version__ = '2.3.3'
 __author__ = 'Ricardo Silva Veloso'
 
-import click
 import re
 from pathlib import Path
+
+import click
 
 @click.command(context_settings=dict(help_option_names=['-h', '--help']))
 @click.version_option(version=__version__, message='%(prog)s %(version)s')
@@ -26,19 +27,18 @@ def extract(executables: list[str]):
         exe_name, blend_name = exe_path.name, blend_path.name
         try:
             if i > 0:
-                print()
+                print() # Separate with blank lines
             with exe_path.open('rb') as exe:
                 print(f'{[i]} Processing `{exe_name}`...')
                 bigger_chunk = bytes()
                 magic_number = None
-
-                # Search for the .blend file's magic number
                 while chunk := exe.read1():
                     bigger_chunk += chunk
                     if magic_number := magic_number_prog.search(bigger_chunk):
-                        print(f'{[i]} Extracting `{blend_name}`...')
                         try:
                             with blend_path.open('wb') as blend:
+                                print(f'{[i]} Extracting `{blend_name}`...')
+
                                 # Copy the .blend file's start
                                 start = magic_number.start()
                                 blend.write(bigger_chunk[start:])
@@ -49,9 +49,9 @@ def extract(executables: list[str]):
                         except IOError:
                             print(f'{[i]} Could not write to `{blend_name}`.')
                         break
-                    else:
-                        # Keep only the last 12 bytes for the next search
-                        bigger_chunk = bigger_chunk[-12:]
+
+                    # Keep only the last 12 bytes for the next search
+                    bigger_chunk = bigger_chunk[-12:]
 
                 # EOF
                 if magic_number is None:
