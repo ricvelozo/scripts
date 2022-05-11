@@ -4,7 +4,7 @@
 Website: https://gitlab.com/ricvelozo/scripts
 """
 
-__version__ = '2.3.1'
+__version__ = '2.3.2'
 __author__ = 'Ricardo Silva Veloso'
 
 import click
@@ -17,7 +17,6 @@ from pathlib import Path
 def extract(executables: list[str]):
     """Extract a .blend file from a Windows executable (.exe)."""
     magic_number_prog = re.compile(b'BLENDER[_|-][v|V][0-9]{3}')
-    magic_number = None
     if not executables:
         executables = [input('Enter the URL of the executable file, ' \
                              'or ENTER to exit:\n>>> ').strip()]
@@ -31,6 +30,7 @@ def extract(executables: list[str]):
             with exe_path.open('rb') as exe:
                 print(f'{[i]} Processing `{exe_name}`...')
                 bigger_chunk = bytes()
+                magic_number = None
 
                 # Search for the .blend file's magic number
                 while chunk := exe.read1():
