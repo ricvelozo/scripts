@@ -34,6 +34,7 @@ flatpak run com.visualstudio.code \
 #     "window.restoreWindows": "none",
 #     "workbench.colorTheme": "GitHub Dark",
 #     "workbench.iconTheme": "material-icon-theme",
+#     "editor.inlayHints.enabled": "offUnlessPressed",
 #     "editor.rulers": [
 #         80,
 #         100
