@@ -17,7 +17,7 @@ flatpak run com.visualstudio.code \
 --install-extension octref.vetur \
 --install-extension bmewburn.vscode-intelephense-client \
 --install-extension matklad.rust-analyzer \
---install-extension bungcip.better-toml \
+--install-extension tamasfe.even-better-toml \
 --install-extension ms-vscode.cpptools \
 --install-extension ms-dotnettools.csharp \
 --install-extension ms-python.python \
