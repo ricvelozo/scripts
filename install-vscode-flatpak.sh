@@ -26,6 +26,8 @@ flatpak run com.visualstudio.code \
 --install-extension sumneko.lua \
 --install-extension Dart-Code.flutter \
 --install-extension geequlim.godot-tools \
+--install-extension ms-azuretools.vscode-docker \
+--install-extension ms-vscode-remote.remote-containers \
 --install-extension bilelmoussaoui.flatpak-vscode
 
 # settings.json:
