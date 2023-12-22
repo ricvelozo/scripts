@@ -8,11 +8,7 @@ flatpak run com.visualstudio.code \
 --install-extension pkief.material-icon-theme \
 --install-extension EditorConfig.EditorConfig \
 --install-extension yzhang.markdown-all-in-one \
---install-extension dotjoshjohnson.xml \
---install-extension formulahendry.auto-close-tag \
---install-extension formulahendry.auto-rename-tag \
---install-extension pucelle.vscode-css-navigation \
---install-extension mrmlnc.vscode-scss \
+--install-extension redhat.vscode-xml \
 --install-extension esbenp.prettier-vscode \
 --install-extension dbaeumer.vscode-eslint \
 --install-extension svelte.svelte-vscode \
