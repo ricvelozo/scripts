@@ -13,9 +13,11 @@ flatpak run com.visualstudio.code \
 --install-extension formulahendry.auto-rename-tag \
 --install-extension pucelle.vscode-css-navigation \
 --install-extension mrmlnc.vscode-scss \
+--install-extension esbenp.prettier-vscode \
 --install-extension dbaeumer.vscode-eslint \
 --install-extension svelte.svelte-vscode \
 --install-extension Vue.volar \
+--install-extension Vue.vscode-typescript-vue-plugin \
 --install-extension bmewburn.vscode-intelephense-client \
 --install-extension rust-lang.rust-analyzer \
 --install-extension tamasfe.even-better-toml \
