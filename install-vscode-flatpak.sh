@@ -10,6 +10,7 @@ flatpak run com.visualstudio.code \
 --install-extension yzhang.markdown-all-in-one \
 --install-extension redhat.vscode-xml \
 --install-extension esbenp.prettier-vscode \
+--install-extension bradlc.vscode-tailwindcss \
 --install-extension dbaeumer.vscode-eslint \
 --install-extension svelte.svelte-vscode \
 --install-extension Vue.volar \
