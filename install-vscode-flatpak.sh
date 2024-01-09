@@ -45,5 +45,6 @@ flatpak run com.visualstudio.code \
 #     "files.watcherExclude": {
 #         "**/target/**": true
 #     },
+#     "update.mode": "none",
 #     "telemetry.telemetryLevel": "off"
 # }
