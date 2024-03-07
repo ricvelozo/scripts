@@ -14,7 +14,6 @@ flatpak run com.visualstudio.code \
 --install-extension dbaeumer.vscode-eslint \
 --install-extension svelte.svelte-vscode \
 --install-extension Vue.volar \
---install-extension Vue.vscode-typescript-vue-plugin \
 --install-extension bmewburn.vscode-intelephense-client \
 --install-extension rust-lang.rust-analyzer \
 --install-extension tamasfe.even-better-toml \
