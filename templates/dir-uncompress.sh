@@ -1,2 +1,2 @@
 #!/bin/sh
-gunzip < backup.tar.gz | tar -x
+unzstd < backup.tar.zst | tar -x
