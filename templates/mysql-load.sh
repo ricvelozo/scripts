@@ -1,3 +1,4 @@
 #!/bin/sh
 host='localhost'
-unzstd < backup.sql.zst | mysql -h $host -u root -p
+port=3306
+unzstd -c < $1 | mysql -h $host -P $port -u root -p
